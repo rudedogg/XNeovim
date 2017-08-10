@@ -1,5 +1,5 @@
 import AppKit
-
+import SwiftNeoVim
 var sharedPlugin: XNeovim?
 
 class XNeovim: NSObject {
@@ -7,6 +7,7 @@ class XNeovim: NSObject {
   var bundle: Bundle
 
   class func pluginDidLoad(_ bundle: Bundle) {
+    print("🔌XNeovim|✅: pluginDidLoad called.")
     guard let bundleIdentifier = Bundle.main.bundleIdentifier else {
       print("🔌XNeovim|⛔️: Bundle identifier is nil. Not loading plugin.")
       return
@@ -17,14 +18,13 @@ class XNeovim: NSObject {
     }
     if sharedPlugin == nil {
       sharedPlugin = XNeovim(bundle: bundle)
-      print("🔌XNeovim|✅: Set shared plugin.")
+      print("🔌XNeovim|✅: Set sharedPlugin variable.")
     }
   }
 
   init(bundle: Bundle) {
     self.bundle = bundle
     super.init()
-
     // Add an observer so we get notified when Xcode is actually loaded
     NotificationCenter.default.addObserver(self, selector: #selector(self.xcodeDidFinishLaunching), name: NSNotification.Name.NSApplicationDidFinishLaunching, object: nil)
   }
@@ -42,7 +42,8 @@ class XNeovim: NSObject {
     configureMenuItems()
     let version = bundle.object(forInfoDictionaryKey: "CFBundleShortVersionString") ?? "⛔️ Unknown"
     print("🔌XNeovim|✅: Plugin initialized!")
-    print("🔌XNeovim|✅: Version \(version)")
+    print("🔌XNeovim|✅: Plugin Version \(version)")
+    print("🔌XNeovim|✅: SwiftNeoVim Framework Version \(SwiftNeoVimVersionNumber)")
   }
 
   private func configureMenuItems() {
