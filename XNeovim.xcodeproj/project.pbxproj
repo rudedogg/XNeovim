@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00380A721F3CEBF500916E02 /* SwiftNeoVim.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00380A6F1F3CEAEA00916E02 /* SwiftNeoVim.framework */; };
 		0042D8C01F2D16F60039B300 /* XNeovim.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 0042D8BF1F2D16F60039B300 /* XNeovim.xcscheme */; };
 		35463F101C27665100C5544D /* XNeovim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35463F0F1C27665100C5544D /* XNeovim.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00380A6F1F3CEAEA00916E02 /* SwiftNeoVim.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftNeoVim.framework; sourceTree = "<group>"; };
 		0042D8BF1F2D16F60039B300 /* XNeovim.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = XNeovim.xcscheme; path = ../XNeovim.xcodeproj/xcshareddata/xcschemes/XNeovim.xcscheme; sourceTree = "<group>"; };
 		35463F091C27665100C5544D /* XNeovim.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XNeovim.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		35463F0F1C27665100C5544D /* XNeovim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XNeovim.swift; sourceTree = "<group>"; };
@@ -19,13 +21,33 @@
 		35463F1C1C276AE200C5544D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFrameworksBuildPhase section */
+		00380A711F3CEBE000916E02 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00380A721F3CEBF500916E02 /* SwiftNeoVim.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXGroup section */
+		00380A6E1F3CEAEA00916E02 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				00380A6F1F3CEAEA00916E02 /* SwiftNeoVim.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 		35463F011C27665100C5544D = {
 			isa = PBXGroup;
 			children = (
 				35463F1B1C276ABA00C5544D /* Documentation */,
 				35463F0B1C27665100C5544D /* Sources */,
 				35463F0A1C27665100C5544D /* Products */,
+				00380A6E1F3CEAEA00916E02 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +94,7 @@
 			buildPhases = (
 				35463F061C27665100C5544D /* Sources */,
 				35463F071C27665100C5544D /* Resources */,
+				00380A711F3CEBE000916E02 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -238,6 +261,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(HOME)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
 				LD_RUNPATH_SEARCH_PATHS = "$(DT_TOOLCHAIN_DIR)/usr/lib/swift/macosx";
@@ -256,6 +283,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(HOME)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
 				LD_RUNPATH_SEARCH_PATHS = "$(DT_TOOLCHAIN_DIR)/usr/lib/swift/macosx";

@@ -1,0 +1,11 @@
+framework module SwiftNeoVim {
+  umbrella header "SwiftNeoVim.h"
+
+  export *
+  module * { export * }
+}
+
+module SwiftNeoVim.Swift {
+    header "SwiftNeoVim-Swift.h"
+    requires objc
+}
